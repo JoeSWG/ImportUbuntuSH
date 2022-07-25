@@ -13,4 +13,5 @@ sudo bash -c "sudo echo net.ipv4.tcp_keepalive_time = 120 >> /etc/sysctl.conf"
 sudo apt-get install -y mongodb-org
 # Uncomment this to bind to all ip addresses
 sudo sed -i -e 's/\bindIp: 0.0.0.0/g' /etc/mongod.conf
-sudo service mongod restart
+sudo service mongod stop
+sudo mongod --dbpath /var/lib/mongodb --bind_ip_all
